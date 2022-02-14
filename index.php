@@ -24,7 +24,11 @@ $html .= "</blockquote>";
 
 echo $html;
 
-echo "<hr />";
+echo "<hr />"; 
 
 //Affiche le fichier avecmise en forme d'origine (retours chariots remplacés par <br />)
 echo nl2br(file_get_contents('./files/corbeau.txt'));
+
+echo "<hr />"; 
+
+readfile('./files/corbeau.txt');

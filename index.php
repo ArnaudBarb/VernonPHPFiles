@@ -1,5 +1,10 @@
 <?php
 
+
+spl_autoload_register(function($className) {
+    include './classes/' . $className . 'php';
+});
+
 $fichier1 = file_get_contents('./files/corbeau.txt');
 
 echo "<pre>";
@@ -30,5 +35,20 @@ echo "<hr />";
 echo nl2br(file_get_contents('./files/corbeau.txt'));
 
 echo "<hr />"; 
-
+ 
 readfile('./files/corbeau.txt');
+
+echo "<hr />"; 
+// Lit un fichier, et le place dans une chaîne
+
+$filename = './files/corbeau.txt';
+$handle = fopen($filename, "r");
+//filesize renvoie la longueur du fichier
+$contents = fread($handle, filesize($filename));
+fclose($handle);
+
+var_dump($contents);
+
+$test = new File('./files/corbeau.txt', 'r');
+var_dump($test->lecture());
+
